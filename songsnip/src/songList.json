@@ -1,0 +1,32 @@
+
+[
+    
+    {
+        "id":1,
+        "name":"Drake",
+        "image":"https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5ed578988b3c370006234c35%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D43%26cropX2%3D1074%26cropY1%3D49%26cropY2%3D1080",
+        "song":"Started from the bottom"
+
+    },
+    {
+        "id":2,
+        "name":"Kendrick Lamar",
+        "image":"https://i.insider.com/5a58de42f421496e0f8b4848?width=1300&format=jpeg&auto=webp",
+        "song":"Element"
+
+    },
+    {
+        "id":3,
+        "name":"ASAP Rocky",
+        "image":"https://compote.slate.com/images/2503cf5f-09a1-4ec1-a0fa-5d941010544c.jpeg?width=1440&rect=6000x4000&offset=0x0",
+        "song":"Pesos"
+
+    },
+    {
+        "id":4,
+        "name":"Cardi B",
+        "image":"https://static.highsnobiety.com/thumbor/rUm_f6aRtzez-FvqX4oysquKAGI=/1600x1067/static.highsnobiety.com/wp-content/uploads/2017/09/05113709/10-best-cardi-b-songs-011.jpg",
+        "song":"Bodak Yellow"
+
+    }
+]
