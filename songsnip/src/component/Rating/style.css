@@ -1,0 +1,19 @@
+
+
+.cards{
+    background:lightsalmon;
+    justify-content: center;
+    /* margin-left: 500px; */
+}
+.card-img-top{
+    width: 288px;
+    height: 288px;
+    /* margin-left: -400px; */
+}
+.userInfo{
+    text-align: center;
+    border: 2px solid salmon
+}
+.pageHeader{
+    text-align: center;
+}
