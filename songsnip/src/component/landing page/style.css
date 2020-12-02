@@ -1,11 +1,18 @@
-.backgroundPic{
-    /* background: red; */
-    height: 100vh;
-    background-image: url("./reviewBackground.jpg");
-    background-position: 'center';
-    background-size: 'cover';
-    background-repeat: 'no-repeat';
-    opacity: 0.5;
+.backgroundPic {
+  /* background: red; */
+  /* height: 100vh; */
+  height: 100vh;
+  background-image: url("./waves.gif");
+  background-position: bottom;
+  background-size: "cover";
+  background-repeat: repeat-x;
+  background-color: black;
+  /* background: black; */
 }
 
-
+#title {
+  background-image: url(https://fontmeme.com/permalink/201129/dca17d39fe55ca4aab3c3e7b4fee6c78.png);
+  height: 95vh;
+  background-repeat: no-repeat;
+  background-position: top, center;
+}
