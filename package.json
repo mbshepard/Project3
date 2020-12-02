@@ -1,0 +1,21 @@
+{
+  "name": "music-app-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm run start",
+    "build": "cd client && npm run build",
+    "heroku-deploy-client": "npm run build && cp -R client/build/* heroku-test-deploy/public",
+    "heroku-deploy-server": "cp -R server/* heroku-test-deploy",
+    "heroku-start": "cd heroku-test-deploy && node server.js",
+    "heroku-watch": "cd heroku-test-deploy && nodemon server.js"
+  },
+  "author": "Ralph",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}

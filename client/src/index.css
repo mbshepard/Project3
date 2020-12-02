@@ -1,0 +1,64 @@
+
+
+.App {
+    text-align: center;
+  }
+  
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /*Audio*/
+  svg {
+    background-color: #ccd3d2;
+    border-radius: 5px;
+    /*cursor: ew-resize;*/
+    /*border: 1px solid lightgray;*/
+  }
+  
+  canvas {
+    background-color: #ccd3d2;
+    cursor: ew-resize;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+  
+  #navlist li
+  {
+    display: inline-grid;
+    list-style-type: none;
+    padding-right: 20px;
+    float: left;
+  }
+  
+  ul{
+    height:25px;
+  }
+  
+  .clip-container{
+    border:1px solid lightgray;
+    width:70%;
+    border-radius: 5px;
+  }
+  
+  .technique li{
+    display: inline-grid;
+    list-style-type: none;
+    margin-right: 10px;
+    float: left;
+    border-radius:3px;
+  }
+  
+  .audio-clip{
+    height: 25px;
+    border: 1px solid snow;
+    background: lightgray;
+    padding-top:2px;
+    border-radius:3px;
+  
+  }
