@@ -21,14 +21,6 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         validate: [({length}) => length >= 6, "Password needds to be longer."]
-    },
-    averageRating: {
-        type: Number,
-        required: false
-    },
-    songSnips: {
-        type: String,
-        required: false
     }
 });
 

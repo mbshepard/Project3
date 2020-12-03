@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import  "../component/songStyle.css"
+import  "./songStyle.css"
 // import Listen from "./listen/Listen"
 
 const Songs = (props)=>{

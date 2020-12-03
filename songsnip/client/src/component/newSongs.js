@@ -1,4 +1,4 @@
-import Songs from '../component/songs';
+import Songs from './songs';
 import sList from "./sList.json"
 
 const NewSongs = ()=>{

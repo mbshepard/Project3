@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import SongInfoContext from "../../util/songInfo";
-import "../Rating/style.css"
+import "./style.css"
 import sList from "../sList.json"
 const Rating = () => {
     const [artistInfo, setArtistInfo]= useState()

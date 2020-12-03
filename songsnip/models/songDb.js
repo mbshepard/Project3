@@ -9,6 +9,14 @@ const songSchema = new Schema({
     songPath: {
         type: String,
         required: true
+    },
+    songSnip: {
+        type: String,
+        required: false
+    },
+    averageRating: {
+        type: Number,
+        required: false
     }
 });
 
