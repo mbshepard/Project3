@@ -1,10 +1,10 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
-import {AddClipIcon, PlayListsIcon} from "../util/appIcons";
-import {SoundXContext} from "./AudioProvider";
-import {ClipList} from "./clips/ClipList";
-import {TimeAnalyze} from "./analyzers/TimeAnalyze";
-import {FFTAnalyze} from "./analyzers/FFTAnalyze";
+import { AddClipIcon, PlayListsIcon } from "../util/appIcons";
+import { SoundXContext } from "./AudioProvider";
+import { ClipList } from "./clips/ClipList";
+import { TimeAnalyze } from "./analyzers/TimeAnalyze";
+import { FFTAnalyze } from "./analyzers/FFTAnalyze";
 
 
 const apiUrl = "";
@@ -21,7 +21,7 @@ export const containerBGs = {
 const PlayerX = () => {
     const canvasRef = useRef();
 
-    let {audio, audioListener} = useContext(SoundXContext);
+    let { audio, audioListener } = useContext(SoundXContext);
 
 
     const [playing, setPlaying] = useState(false);
@@ -31,7 +31,7 @@ const PlayerX = () => {
     const [playlist, setPlaylist] = useState([]);
     // const [metaPhorList, setMetaPhorList] = useState([]);
 
-    const [timeOverViewAnalyzer, setTimeOverViewAnalyzer] = useState(<div/>);
+    const [timeOverViewAnalyzer, setTimeOverViewAnalyzer] = useState(<div />);
 
     useEffect(() => {
         const loadPlaylist = async () => {
@@ -68,7 +68,7 @@ const PlayerX = () => {
                 setPos(p)
             },
             createAnalyzers: () => {
-                setTimeOverViewAnalyzer(audio.createAnalyzer(795, 100));
+                setTimeOverViewAnalyzer(audio.createAnalyzer(795, 50));
             }
         }, canvasRef.current)/**/
 
@@ -96,18 +96,18 @@ const PlayerX = () => {
         audioListener.addClipToTechnique(technique)
     };
     const AddClipButton = (props) => {
-        const {key,technique}=props;
+        const { key, technique } = props;
         return <li key={key}
-                   onClick={() => addClip(technique)}
-                   style={{background: containerBGs[technique],cursor:"pointer"}}>
-            <span><AddClipIcon/> Add to {technique}</span>
+            onClick={() => addClip(technique)}
+            style={{ background: containerBGs[technique], cursor: "pointer" }}>
+            <span><AddClipIcon /> Add to {technique}</span>
         </li>
     }
     return (
 
         <div>
-            <div style={{textAlign: "left", padding: 10}}>
-                <PlayListsIcon/>
+            <div style={{ textAlign: "left", padding: 10 }}>
+                <PlayListsIcon />
                 <select onChange={titleSelected}>
                     {
                         playlist.map((itm, idx) => {
@@ -120,38 +120,39 @@ const PlayerX = () => {
                 </select>
             </div>
 
-            {loaded &&
-            <div>
+            {/* {loaded && */}
+                {/* <div> */}
 
-                <hr/>
-
-
-                <FFTAnalyze key={1} w={80} h={50}/>
-                <TimeAnalyze key={2} w={150} h={50}/>
-
-                <br/>
+                    {/* <hr /> */}
 
 
-                {/*<div disabled={!loaded} onClick={toggle}>{playing ? <AnimatePauseIcon/> : <AnimatePlayIcon/>}</div>*/}
-                {/*    <ProgressX max={max} pos={pos} changed={changed}/>*/}
-                {/*    <br/>*/}
+                    {/* <FFTAnalyze key={1} w={80} h={50} />
+                    <TimeAnalyze key={2} w={80} h={50} /> */}
 
-            </div>
-            }
+                    {/* <br /> */}
+
+
+                    {/*<div disabled={!loaded} onClick={toggle}>{playing ? <AnimatePauseIcon/> : <AnimatePlayIcon/>}</div>*/}
+                    {/*    <ProgressX max={max} pos={pos} changed={changed}/>*/}
+                    {/*    <br/>*/}
+
+                {/* </div> */}
+            {/* } */}
+            {loaded && <FFTAnalyze key={1} w={80} h={50} /> }
 
             {timeOverViewAnalyzer}
-
+            {loaded && <TimeAnalyze key={2} w={80} h={50} /> }
             {loaded &&
-            <div>
-                <ul className={"technique"}>
-                    <AddClipButton key={1} technique={TECHNIQUE_METAPHOR}/>
-                    <AddClipButton key={2} technique={TECHNIQUE_PUNCH_LINE}/>
-                    <AddClipButton key={3} technique={TECHNIQUE_IMAGERY}/>
-                </ul>
-                <ClipList technique={TECHNIQUE_METAPHOR} max={4}/>
-                <ClipList technique={TECHNIQUE_PUNCH_LINE} max={2}/>
-                <ClipList technique={TECHNIQUE_IMAGERY} max={3}/>
-            </div>
+                <div>
+                    <ul className={"technique"}>
+                        <AddClipButton key={1} technique={TECHNIQUE_METAPHOR} />
+                        <AddClipButton key={2} technique={TECHNIQUE_PUNCH_LINE} />
+                        <AddClipButton key={3} technique={TECHNIQUE_IMAGERY} />
+                    </ul>
+                    <ClipList technique={TECHNIQUE_METAPHOR} max={4} />
+                    <ClipList technique={TECHNIQUE_PUNCH_LINE} max={2} />
+                    <ClipList technique={TECHNIQUE_IMAGERY} max={3} />
+                </div>
             }
 
         </div>

@@ -1,4 +1,4 @@
-import React, {Component, createRef} from 'react';
+import React, { Component, createRef } from 'react';
 
 
 
@@ -6,24 +6,24 @@ export class TimeOverviewAnalyzer extends Component {
     // static contextType = SoundXContext;
 
     state = {
-        range: {start: 0, end: 50}
+        range: { start: 0, end: 50 }
     }
     canvasRef = createRef();
 
     componentDidMount() {
-        const {analyzer} = this.props;
+        const { analyzer } = this.props;
         const canvas = this.canvasRef.current;
-        analyzer.init(canvas,this);
+        analyzer.init(canvas, this);
     }
 
-    setRange=(range)=>{
-        this.setState({range})
+    setRange = (range) => {
+        this.setState({ range })
     }
 
     render() {
 
-        const {analyzer, w, h} = this.props;
-        const {range} = this.state;
+        const { analyzer, w, h } = this.props;
+        const { range } = this.state;
 
 
         const stop = () => {
@@ -34,16 +34,13 @@ export class TimeOverviewAnalyzer extends Component {
         }
         return (
             <div>
-                <div>
-
-
                     <div>
+                        <span>{range.start} sec</span> - <span>{range.end} sec</span><br />
                         <canvas ref={this.canvasRef} width={w} height={h}></canvas>
                         {/*<svg ref={this.canvasRef} width={w} height={h}></svg>*/}
                     </div>
-                </div>
+            
                 <div>
-                    <span>{range.start} sec</span> - <span>{range.end} sec</span><br/>
                     <button onClick={play}>play</button>
                     <button onClick={stop}>stop</button>
                 </div>

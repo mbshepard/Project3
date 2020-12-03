@@ -7,8 +7,7 @@ import "./component/songStyle.css"
 import Rating from "./component/Rating/Rating";
 import React, { useState, useEffect } from "react";
 import SongInfoContext from "./util/songInfo";
-import { AudioStartReact } from "./component/XsoundTest/AudioStartReact";
-import { AudioStart } from "./component/XsoundTest/AudioStart";
+
 
 const App = () => {
     const [songInfoState, setSongInfoState] = useState({
@@ -28,8 +27,7 @@ const App = () => {
                         <Route exact path="/newSongs" component={NewSongs} />
                         <Route exact path="/listen" component={Listen} />
                         <Route exact path="/rating/:artistId" component={Rating} />
-                        <Route exact path="/XsoundReact" component={AudioStartReact} />
-                        <Route exact path="/Xsound" component={AudioStart} />
+                        
                         
                     </div>
                 </Router>
