@@ -7,12 +7,34 @@
   background-size: "cover";
   background-repeat: repeat-x;
   background-color: black;
-  /* background: black; */
+  position: relative;
 }
 
 #title {
   background-image: url(https://fontmeme.com/permalink/201129/dca17d39fe55ca4aab3c3e7b4fee6c78.png);
-  height: 95vh;
+  height: 25%;
   background-repeat: no-repeat;
   background-position: top, center;
+}
+
+#form {
+  position: absolute center;
+  /* background-image: url("./equalizer.gif"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  width: 550px;
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 25px 25px 25px 25px;
+}
+
+.form-control {
+  position: absolute center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
