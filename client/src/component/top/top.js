@@ -31,6 +31,7 @@ const Top = () => {
                         <Link to="detailed" class="nav-link" >Detailed Page</Link>
                        
                     </li>
+                    
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
        <Dropdown/> 
