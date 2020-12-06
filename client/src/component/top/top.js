@@ -48,6 +48,7 @@ const Top = () => {
                     <Link to="/" className="nav-link" ><HomeIcon />Home</Link>
                     <Link to="/analyze" className="nav-link" ><AnalysisIcon />Analyze </Link>
                     <Link to="/listen" className="nav-link" > <ListenIcon /> Listen</Link>
+                    <Link to="review" class="nav-link" ><ReviewIcon/>Review </Link>
 
                 </Nav>
                 <Nav>
