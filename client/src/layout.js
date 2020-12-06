@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import App from "./App";
 import Top from "./component/top/top";
 import Root from "./pages/rootPage";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const Layout = () => {

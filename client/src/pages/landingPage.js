@@ -4,7 +4,6 @@ import PlayerX from "../xsound/Playerx";
 const LandingPage = () => {
     return <div>
         Landing Page
-<PlayerX/>
     </div>;
 }
  

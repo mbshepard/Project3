@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '../src/App';
+// import App from '../src/App';
 import Layout from './layout';
 import { AudioProvider } from './xsound/AudioProvider';
 // import reportWebVitals from './reportWebVitals';

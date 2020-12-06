@@ -1,7 +1,8 @@
 export const activitySample = {
     userId: 10,
     songId: 3,
-    technique: {
+    technique: 
+    {
         metaphor: {
             clips: [
                 {
