@@ -6,10 +6,12 @@ const activitySchema = new Schema({
         type: Number,
         required: true
     },
-    technique: [metaphorsSchema, punchlineSchema, imagerySchema]
+    metaphorClips: [techniqueSchema],
+    punchlineClips: [techniqueSchema],
+    imageryClips: [techniqueSchema]
 })
 
-const metaphorsSchema = new Schema({
+const techniqueSchema = new Schema({
     clips: [clipsSchema],
     avgRating: {
         type: Number,
@@ -17,21 +19,6 @@ const metaphorsSchema = new Schema({
     }
 })
 
-const punchlineSchema = new Schema({
-    clips: [clipsSchema],
-    avgRating: {
-        type: Number,
-        required: true
-    }
-})
-
-const imagerySchema = new Schema({
-    clips: [clipsSchema],
-    avgRating: {
-        type: Number,
-        required: true
-    }
-})
 
 const clipsSchema = new Schema({
     start: {
@@ -50,5 +37,4 @@ const clipsSchema = new Schema({
 
 
 
-const userActivity = mongoose.model("Activity", activitySchema);
-
+module.exports = activitySchema;
