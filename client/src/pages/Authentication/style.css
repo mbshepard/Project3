@@ -16,7 +16,7 @@
   background-repeat: no-repeat;
   background-position: top, center;
 }
-body {
+.auth-body {
   background-color: black;
 }
 

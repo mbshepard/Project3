@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Analyze from "./analyze";
 import Authentication from "./Authentication/authentication";
-import DetailedPage from "./detailedPahe";
+import DetailedPage from "./detailedPage";
 import LandingPage from "./landingPage";
 import Listen from "./Listen";
 import Review from "./review";

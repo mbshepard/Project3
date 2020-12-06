@@ -6,7 +6,7 @@ import { Form, Container, Row, Col } from 'react-bootstrap';
 const Authentication = () => {
     return <div className="backgroundPic">
             <div id="title"> </div> 
-            <body>
+            <div className="auth-body">
                 <div className="pForm">
                     <div id="form-background"></div>
                     <div id="form">
@@ -39,7 +39,7 @@ const Authentication = () => {
                         </Form>  
                     </div>
                 </div>
-            </body>
+            </div>
 
        
 
