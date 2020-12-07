@@ -36,8 +36,6 @@ const Technique = mongoose.model("Technique", techniqueSchema);
 const Clip = mongoose.model("Clip", clipsSchema);
 
 
-module.exports = {
-    Clip,
-    Technique,
-    Activity
-}
+module.exports = Clip;
+module.exports = Technique;
+module.exports = Activity;
