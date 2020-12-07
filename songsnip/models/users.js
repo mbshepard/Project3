@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const activitySchema = require("./userActivity");
 
 const userSchema = new Schema({
     firstName: {
@@ -23,7 +22,7 @@ const userSchema = new Schema({
         trim: true,
         validate: [({length}) => length >= 6, "Password needds to be longer."]
     },
-    userActivity: [activitySchema]
+    userActivity: [{type: Schema.Types.ObjectId, ref: "Activity"}]
 });
 
 const User = mongoose.model("User", userSchema);
