@@ -6,9 +6,14 @@ import Layout from './layout';
 import { AudioProvider } from './xsound/AudioProvider';
 // import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+import {BrowserRouter, Route} from "react-router-dom";
+import Authentication from "./pages/Authentication/authentication";
 
+ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
+      <Route path="/" component={Authentication}/>
+    </BrowserRouter>
     <AudioProvider>
     {/* <App /> */}
     <Layout/>

@@ -9,7 +9,6 @@ import Review from "./review";
 
 const Root = () => {
     return  <div>
-        <Route exact path="/" component={Authentication} />
         <Route exact path="/landingpage" component={LandingPage} />
         <Route exact path="/analyze" component={Analyze} />
         <Route exact path="/listen" component={Listen} />
@@ -21,3 +20,5 @@ const Root = () => {
 }
  
 export default Root;
+
+{/* <Route exact path="/" component={Authentication} /> */}
