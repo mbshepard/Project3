@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import PlayerX from "../xsound/Playerx";
+import { TimeOverviewAnalyzer } from "../xsound/analyzers/TimeOverviewAnalyzer";
+import { TechniqueManager } from "../xsound/TechniqueManager";
 
 const Analyze = () => {
     return <div>
-        Analyze
-<PlayerX/>
+        
+        <TimeOverviewAnalyzer apiUrl={""} key={"analyzer"} w={800} h={100} />
+        <TechniqueManager/>
         
     </div>;
 }

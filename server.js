@@ -49,7 +49,10 @@ stream.on('error', function (error) {
 res.statusCode = 200;
 stream.pipe(res);
 });
-
+app.get("/*",(req,res, next)=>{
+res.redirect("/");
+next()
+})
 
 
 app.listen(PORT, () => {

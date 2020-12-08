@@ -53,6 +53,11 @@
     float: left;
     border-radius:3px;
   }
+  .timefft li{
+    display: inline-grid;
+    list-style-type: none;
+    margin-right: 5px;
+  }
   
   .audio-clip{
     height: 25px;
