@@ -29,8 +29,9 @@
   position: absolute;
   width: 100%;
   height: 400px;
-  background-image: url("./equalizer.gif");
-  background-repeat: no-repeat;
+  /* background-image: url("./equalizer.gif"); */
+  background-image: url("./motion.gif");
+  /* background-repeat: no-repeat; */
   background-position: center;
   background-size: 40%;
   opacity: 0.45;
@@ -48,6 +49,30 @@
   align-items: center;
 }
 
+/* Form {
+  align-items: center;
+} */
+
 Form.Group {
   width: 100%;
+}
+
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 10000ms linear 150ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150ms linear;
 }

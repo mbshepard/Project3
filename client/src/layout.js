@@ -13,7 +13,7 @@ const Layout = () => {
                 {/* <App /> */}
                 <Root />
             </div>
-            </Router>
+        </Router>
     </div>);
 }
 
