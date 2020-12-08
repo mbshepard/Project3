@@ -16,8 +16,8 @@ const Top = () => {
     return <div style={{ height: 120, }}>
        
 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="white">
+            <Navbar.Brand href="/">BaRs</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
