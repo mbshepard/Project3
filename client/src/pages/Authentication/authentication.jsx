@@ -35,10 +35,6 @@ class Authentication extends Component {
     }
 }
 
-
-// const Authentication = () => {
-//     return 
-// }
 export default Authentication;
 
 
