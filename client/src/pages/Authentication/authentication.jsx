@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch} from "react-router-dom";
+import { Link, Route, Switch} from "react-router-dom";
 import newUser from './newUser';
 import existingUser from './existingUser';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -34,6 +34,8 @@ class Authentication extends Component {
         );
     }
 }
+
+<Link to="/newSongs">New Songs</Link>
 
 export default Authentication;
 
