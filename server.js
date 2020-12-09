@@ -15,6 +15,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use(express.static("client/build"));
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true,useUnifiedTopology: true,
 // useCreateIndex: true,
