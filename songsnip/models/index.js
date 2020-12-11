@@ -1,6 +1,5 @@
 module.exports = {
     User: require("./users"),
-    Activity: require("./userActivity"),
-    Technique: require("./userActivity"),
-    Clip: require("./userActivity")
+    Song: require("./songCollection"),
+    Clip: require("./clipCollection")
 };
