@@ -29,6 +29,7 @@ class Authentication extends Component {
                             </TransitionGroup>
                         )} />
                     </div>
+                    <Link to="/home"> Home </Link>
                 </div>
             </div>
         );
