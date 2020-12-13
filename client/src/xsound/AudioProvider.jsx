@@ -1,12 +1,12 @@
 import React, {createContext, Component} from 'react';
-import ServiceX from "../xsound/ServiceX"
+import AudioService from "./core/AudioService"
 import AudioEventListener from "./AudioEventListener";
 
 export const SoundXContext = createContext();
 
 export class AudioProvider extends Component {
     render() {
-        const audio = new ServiceX();
+        const audio = new AudioService();
         const audioListener = new AudioEventListener(audio)
         return (
             <SoundXContext.Provider value={{

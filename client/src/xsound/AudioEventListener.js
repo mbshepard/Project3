@@ -6,6 +6,18 @@ class AudioEventListener {
     currentClip;
     timeOverviewRange;
     techniqueGroups=[];
+    duration=0;
+
+    timeOverviewAnalyzer;
+    timeAnalyze;
+    fftAnalyze;
+    techniqueManager;
+    progressX;
+    showTopNav;
+    selectedSongId=-1;
+    songLoader;
+    reviewPage;
+    songList=[];
 
     constructor(audio) {
         this.audio = audio;
@@ -33,29 +45,52 @@ class AudioEventListener {
         if(this.currentClip){
             this.currentClip.progress(pos)
         }
+        if (this.progressX){
+            this.progressX.progress(pos)
+        }
     }
     stopAll=()=>{
         this.registeredClips.forEach((clip)=>{
             clip.stop()
         });
+        if (this.progressX){
+            this.progressX.stop()
+        }
     }
     requestFocus=(id)=>{
         this.stopAll()
         this.currentClip=this.registeredClips.find((itm)=>itm.getId()===id);
-
     }
 
-    getTimeAnalyzer=(canvas)=>{
-        return this.audio.getTimeAnalyzer(canvas)
+    loaded=(duration)=>{
+        if (this.timeAnalyze){
+            this.timeAnalyze.loaded(duration);
+        }
+        if (this.fftAnalyze){
+            this.fftAnalyze.loaded(duration);
+        }
+        if (this.progressX){
+            this.progressX.loaded(duration);
+        }
+        if (this.techniqueManager){
+            this.techniqueManager.loaded(duration)
+        }
+        if (this.timeOverviewAnalyzer){
+            this.timeOverviewAnalyzer.loaded(duration)
+        }
+        if (this.reviewPage){
+            this.reviewPage.loaded(duration,this.getCurrentSongInfo());
+        }
     }
 
-    getFftAnalyzer=(canvas)=>{
-        return this.audio.getFftAnalyzer(canvas)
-    };
 
     setTimeOverviewRange=(range)=>{
         this.stopAll();
-        this.timeOverviewRange=range
+        this.timeOverviewRange=range;
+        if (this.timeOverviewAnalyzer){
+            this.timeOverviewAnalyzer.setRange(range)
+        }
+
     };
 
     registerTechnique=(techniqueName,tech)=> {
@@ -67,7 +102,26 @@ class AudioEventListener {
         if (tech){
             tech.addClip();
         }
+    };
+
+    resetTechniques=()=>{
+        for (const [key, tech] of Object.entries(this.techniqueGroups)) {
+            tech.clearClips()
+        }
+        this.timeOverviewRange=null;
     }
+
+    loadCurrentSong=()=>{
+        this.songLoader.loadSong(this.selectedSongId)
+    }
+
+    getCurrentSongInfo=()=>{
+        return this.songList.find((itm)=>{
+            return `${itm.id}`===`${this.selectedSongId}`;
+        })
+    }
+
+
 
 }
 

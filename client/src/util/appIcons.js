@@ -13,8 +13,9 @@ export {
 } from "react-icons/im"
 
 export {
-    BiMessageCheck as ReviewIcon
+    BiMessageCheck as ReviewIcon,
 } from "react-icons/bi"
+
 
 export {
     MdPlaylistAdd as AddClipIcon
@@ -22,6 +23,8 @@ export {
 
 export {
     RiPlayList2Fill as PlayListsIcon,
+    RiLogoutBoxRLine as LogoutIcon
+
 } from "react-icons/ri"
 
 export {

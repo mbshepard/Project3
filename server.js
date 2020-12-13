@@ -1,5 +1,6 @@
 // Packages imported
 const express = require("express");
+const sList = require("./sList");
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const morgan = require('morgan');
@@ -10,7 +11,6 @@ const fs = require('fs');
 const mongoose = require("mongoose");
 
 // Route/File imports
-const sList = require ("./sList");
 const audioList = require('./audioList');
 // const passport = require ('./passport/passport');
 // const auth = require('./Routes/auth');
@@ -60,35 +60,41 @@ app.get("/api/songs", (req, res) => {
 
 app.get('/audio/playlist', (req, res) => {
   const mappedList=audioList.map((itm,id)=>{
-    return {id,title:itm.title,artists:itm.artists}
+    return {id:itm.id, title: itm.title, artists: itm.artists}
   });
     return res.send(mappedList);
 });
 
 app.get('/audio/load/:id', (req, res) => {
-  const id =req.params.id;
-  const audioItem=audioList[id];
-  var stream = fs.createReadStream(audioItem.path);
+ 
 
-  // Handle non-existent file
-  stream.on('error', function (error) {
-    res.writeHead(404, 'Not Found');
-    res.write('404: File Not Found!');
-    res.end();
-  });
 
-  // File exists, stream it to user
-  res.statusCode = 200;
-  stream.pipe(res);
+    const id = req.params.id;
+    const audioItem = audioList.find((itm)=>{
+        return `${itm.id}`===id;
+    });
+    var stream = fs.createReadStream(audioItem.path);
+
+// Handle non-existent file
+    stream.on('error', function (error) {
+        res.writeHead(404, 'Not Found');
+        res.write('404: File Not Found!');
+        res.end();
+    });
+
+// File exists, stream it to user
+    res.statusCode = 200;
+    stream.pipe(res);
 });
+app.get("/*", (req, res, next) => {
+    res.redirect("/");
+    next()
+})
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, './client/build/index.html'))
-// });
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
-  });
+});
 
 
 
