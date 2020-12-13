@@ -10,9 +10,6 @@ const songSchema = new Schema({
     },
     songKey: {
         type: String
-    },
-    songImg: {
-        type: String
     }
 });
 
