@@ -8,8 +8,8 @@ import Review from "./review";
 
 const Root = () => {
     return  <div>
-        {/*<Route exact path="/" component={Authentication} />*/}
-        <Route exact path="/" component={LandingPage} />
+         {/* <Route exact path="/" component={LandingPage} /> */}
+         <Route exact path="/landingpage" component={LandingPage} />
         <Route exact path="/analyze" component={Analyze} />
         <Route exact path="/listen" component={Listen} />
         <Route exact path="/review" component={Review} />
@@ -20,3 +20,5 @@ const Root = () => {
 }
  
 export default Root;
+
+{/* <Route exact path="/" component={Authentication} /> */}

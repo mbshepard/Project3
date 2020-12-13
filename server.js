@@ -1,38 +1,75 @@
+// Packages imported
 const express = require("express");
 const sList = require("./sList");
+const session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
+const morgan = require('morgan');
+const dotenv = require('dotenv');
 const path = require('path');
 const fs = require('fs');
-const audioList = require('./audioList');
 // const mongojs = require("mongojs");
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
+
+// Route/File imports
+const sList = require ("./sList");
+const audioList = require('./audioList');
+// const passport = require ('./passport/passport');
+// const auth = require('./Routes/auth');
+// const router = require('./Routes/api');
+
+const processENV = process.env.NODE_ENV === 'production'
+dotenv.config({ silent: processENV });
 
 const PORT = process.env.PORT || 3000;
-
-
 const app = express();
 
-
-app.use(express.urlencoded({extended: true}));
+// app.use(morgan('tiny'));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("client/build"));
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true,useUnifiedTopology: true,
-// useCreateIndex: true,
-// useFindAndModify: false });
-app.get("/api/songs", (req, res) => {
+app.use(express.static('client/build'));
 
-    res.send(sList.module);
-});
+
+// Loading MongoDB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/users", { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false });
+
+// Express session
+// app.use(
+//   session({
+//     secret: 'secret work',
+//     resave: false,
+//     saveUninitialized: true, 
+//     store: new MongoStore({ mongooseConnection: mongoose.connection }),
+//   })
+// );
+
+// Passport middleware  
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// app.use('/auth', auth);
+// app.use('/api', router);
+
+// Loading all music interface
+app.get("/api/songs", (req, res) => {
+  res.send(sList.module);
+  });
 
 app.get('/audio/playlist', (req, res) => {
-    const mappedList = audioList.map((itm, idx) => {
-        return {id:itm.id, title: itm.title, artists: itm.artists}
-    });
+  const mappedList=audioList.map((itm,id)=>{
+    return {id:itm.id, title: itm.title, artists: itm.artists}
+  });
     return res.send(mappedList);
-
 });
 
 app.get('/audio/load/:id', (req, res) => {
+  const id =req.params.id;
+  const audioItem=audioList[id];
+  var stream = fs.createReadStream(audioItem.path);
 
     const id = req.params.id;
     const audioItem = audioList.find((itm)=>{
@@ -60,5 +97,7 @@ app.get("/*", (req, res, next) => {
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
 });
+
+
 
 
