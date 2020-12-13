@@ -1,13 +1,13 @@
 import {Link} from "react-router-dom";
-import {AnalysisIcon, HomeIcon, ListenIcon, LogoutIcon, ReviewIcon} from "../../util/appIcons";
+import {AnalysisIcon, HomeIcon, ListenIcon, LogoutIcon, ReviewIcon} from "../../../util/appIcons";
 import {Nav, Navbar} from 'react-bootstrap'
-import {SongLoader} from "../../xsound/SongLoader";
-import {PlayProgress} from "../../xsound/PlayProgress"
-import {FFTAnalyze} from "../../xsound/analyzers/FFTAnalyze";
-import {TimeAnalyze} from "../../xsound/analyzers/TimeAnalyze";
-import {TimeOverviewAnalyzer} from "../../xsound/analyzers/TimeOverviewAnalyzer";
+import {SongLoader} from "../../../xsound/SongLoader";
+import {PlayProgress} from "../../../xsound/PlayProgress"
+import {FFTAnalyze} from "../../../xsound/analyzers/FFTAnalyze";
+import {TimeAnalyze} from "../../../xsound/analyzers/TimeAnalyze";
+import {TimeOverviewAnalyzer} from "../../../xsound/analyzers/TimeOverviewAnalyzer";
 import {Fragment, useContext, useEffect, useState} from "react";
-import {SoundXContext} from "../../xsound/AudioProvider";
+import {SoundXContext} from "../../../xsound/AudioProvider";
 
 // const apiUrl = "http://localhost:3030";
 const apiUrl = "";

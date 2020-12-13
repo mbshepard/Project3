@@ -14,9 +14,9 @@ import PrivateRoute from './pages/Authentication/Components/protectedRoute';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Route path="/" component={Authentication}/>
-    </BrowserRouter>
+    </BrowserRouter> */}
     <AudioProvider>
     {/* <App /> */}
     <Layout/>

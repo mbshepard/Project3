@@ -11,7 +11,6 @@ const fs = require('fs');
 const mongoose = require("mongoose");
 
 // Route/File imports
-const sList = require ("./sList");
 const audioList = require('./audioList');
 // const passport = require ('./passport/passport');
 // const auth = require('./Routes/auth');
@@ -67,9 +66,8 @@ app.get('/audio/playlist', (req, res) => {
 });
 
 app.get('/audio/load/:id', (req, res) => {
-  const id =req.params.id;
-  const audioItem=audioList[id];
-  var stream = fs.createReadStream(audioItem.path);
+ 
+
 
     const id = req.params.id;
     const audioItem = audioList.find((itm)=>{

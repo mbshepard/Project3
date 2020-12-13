@@ -12,7 +12,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Top from "./pages/component/top/top";
 import Root from "./pages/rootPage";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Authentication from "./pages/Authentication/authentication";
 import { useEffect } from "react";
 
 
