@@ -42,6 +42,11 @@ export class ClipContainer extends Component {
         this.setState({clipList});
     };
 
+    clearClips=()=>{
+        const clipList=[];
+        this.setState({clipList});
+    }
+
     render() {
         const {clipList} = this.state;
         const {technique} = this.props;

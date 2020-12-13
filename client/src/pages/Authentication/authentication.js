@@ -1,9 +1,15 @@
 import "./style.css"
-import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Container, Row, Col } from 'react-bootstrap';
+import {Form, Row} from 'react-bootstrap';
+import Button from "react-bootstrap/Button";
 
-const Authentication = () => {
+
+const Authentication = (props) => {
+
+    const login=()=>{
+        props.setUser({name:"Ralph"})
+    }
+    
     return <div className="backgroundPic">
             <div id="title"> </div> 
             <div className="auth-body">
@@ -36,6 +42,7 @@ const Authentication = () => {
                                     <Form.Control type="email" placeholder="Password" />
                                 </Form.Group>
                             </Row>
+                            <Button onClick={login}>Login</Button>
                         </Form>  
                     </div>
                 </div>

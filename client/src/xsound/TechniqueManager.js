@@ -27,6 +27,7 @@ export const TechniqueManager=(props) =>{
 
     const loaded=()=>{
         setShow(true)
+        audioListener.resetTechniques();
     }
     const addClip = (technique) => {
         audioListener.addClipToTechnique(technique)

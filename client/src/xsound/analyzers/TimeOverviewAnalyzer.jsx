@@ -29,17 +29,15 @@ export class TimeOverviewAnalyzer extends Component {
     loaded(duration) {
         const range=this.state.range;
         range.end=duration;
+        range.start=0;
         this.setState({show: true,range});
 
 
-        /*     const canvas = this.canvasRef.current;
-             this.context.audio.createOverviewAnalyzer(canvas);*/
-
     }
 
-    loadSong = (songPath) => {
+    loadSong = (songId) => {
         const audio = this.context.audio;
-        audio.doLoad(`${this.props.apiUrl}/audio/load/${songPath}`, {
+        audio.doLoad(`${this.props.apiUrl}/audio/load/${songId}`, {
 
             createAnalyzers: () => {
                 const analyzer = audio.createAnalyzer();

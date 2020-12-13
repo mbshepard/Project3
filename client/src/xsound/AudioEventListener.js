@@ -13,6 +13,11 @@ class AudioEventListener {
     fftAnalyze;
     techniqueManager;
     progressX;
+    showTopNav;
+    selectedSongId=-1;
+    songLoader;
+    reviewPage;
+    songList=[];
 
     constructor(audio) {
         this.audio = audio;
@@ -73,6 +78,9 @@ class AudioEventListener {
         if (this.timeOverviewAnalyzer){
             this.timeOverviewAnalyzer.loaded(duration)
         }
+        if (this.reviewPage){
+            this.reviewPage.loaded(duration,this.getCurrentSongInfo());
+        }
     }
 
 
@@ -94,7 +102,26 @@ class AudioEventListener {
         if (tech){
             tech.addClip();
         }
+    };
+
+    resetTechniques=()=>{
+        for (const [key, tech] of Object.entries(this.techniqueGroups)) {
+            tech.clearClips()
+        }
+        this.timeOverviewRange=null;
     }
+
+    loadCurrentSong=()=>{
+        this.songLoader.loadSong(this.selectedSongId)
+    }
+
+    getCurrentSongInfo=()=>{
+        return this.songList.find((itm)=>{
+            return `${itm.id}`===`${this.selectedSongId}`;
+        })
+    }
+
+
 
 }
 
