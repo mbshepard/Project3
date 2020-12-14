@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AudioClip} from "./AudioClip";
 import {SoundXContext} from "../AudioProvider";
-import {containerBGs} from "../TechniqueManager";
+import {containerBGs} from "../../util/Constants";
 
 
 export class ClipContainer extends Component {
@@ -23,7 +23,8 @@ export class ClipContainer extends Component {
                 const secs = Math.floor(range.end - range.start);
                 if ( secs > 10) {
                     const id = new Date().getTime();
-                    const clipList = [...this.state.clipList, {id, ...range}];
+                    const score=7;//todo for testing only
+                    const clipList = [...this.state.clipList, {id,score, ...range}];
                     this.setState({clipList});
                 } else {
                     alert(`Selected clips of ${secs} is less than 10secs`)
@@ -46,6 +47,10 @@ export class ClipContainer extends Component {
         const clipList=[];
         this.setState({clipList});
     }
+
+    loadClips=(clipList)=>{
+        this.setState({clipList});
+    };
 
     render() {
         const {clipList} = this.state;
