@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import { AudioProvider } from './xsound/AudioProvider';
-
-import Authentication from "./pages/Authentication/authentication";
+import {AudioProvider} from './xsound/AudioProvider';
 import Layout from './layout';
-import { outputUserContext } from './pages/Authentication/Components/userContext';
-import PrivateRoute from './pages/Authentication/Components/protectedRoute';
 
 // import reportWebVitals from './reportWebVitals';
 // import App from '../src/App';

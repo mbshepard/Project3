@@ -2,12 +2,17 @@ import "./style.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Row} from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
+import {useContext} from "react";
+import {SoundXContext} from "../../xsound/AudioProvider";
 
 
 const Authentication = (props) => {
+    const {audioListener} = useContext(SoundXContext);
 
     const login=()=>{
-        props.setUser({name:"Ralph"})
+        const user={name:"Ralph",userId:3};
+        audioListener.user=user;
+        props.setUser(user)
     }
     
     return <div className="backgroundPic">

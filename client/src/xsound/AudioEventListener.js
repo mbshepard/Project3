@@ -1,3 +1,10 @@
+import {TECHNIQUE_IMAGERY, TECHNIQUE_METAPHOR, TECHNIQUE_PUNCH_LINE} from "../util/Constants";
+
+const filterClips=(clips,tech)=>{
+    return clips.filter((itm)=>{
+        return itm.techniqueType===tech;
+    });
+}
 
 class AudioEventListener {
 
@@ -18,6 +25,7 @@ class AudioEventListener {
     songLoader;
     reviewPage;
     songList=[];
+    user;
 
     constructor(audio) {
         this.audio = audio;
@@ -119,6 +127,30 @@ class AudioEventListener {
         return this.songList.find((itm)=>{
             return `${itm.id}`===`${this.selectedSongId}`;
         })
+    }
+
+    getClipList=()=>{
+        const allClips=[];
+        for (const [techName, tech] of Object.entries(this.techniqueGroups)) {
+            const {clipList}=tech.state;
+            const newList=clipList.map((itm)=>{
+                return {...itm,techniqueType:techName,songId:this.selectedSongId,userId:"????"}
+            });
+            allClips.push(...newList);
+        }
+        return allClips;
+    }
+
+    loadClipList=(userClips)=>{
+
+        [TECHNIQUE_METAPHOR,TECHNIQUE_IMAGERY,TECHNIQUE_PUNCH_LINE].forEach((tech)=>{
+            const filtered=userClips.filter((itm)=>{
+                return itm.techniqueType===tech;
+            });
+            this.techniqueGroups[tech].loadClips(filtered);
+        })
+
+
     }
 
 
