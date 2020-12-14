@@ -3,16 +3,9 @@ import React, {useContext,useState,useEffect} from 'react';
 import {ClipContainer} from "./clips/ClipContainer";
 import {AddClipIcon} from "../util/appIcons";
 import {SoundXContext} from "./AudioProvider";
+import {containerBGs, TECHNIQUE_IMAGERY, TECHNIQUE_METAPHOR, TECHNIQUE_PUNCH_LINE} from "../util/Constants";
 
-const TECHNIQUE_METAPHOR = 'Metaphor';
-const TECHNIQUE_PUNCH_LINE = 'Punch_line';
-const TECHNIQUE_IMAGERY = 'Imagery';
 
-export const containerBGs = {
-    [TECHNIQUE_METAPHOR]: "#2e8b57",
-    [TECHNIQUE_PUNCH_LINE]: "rgba(255,105,104,0.96)",
-    [TECHNIQUE_IMAGERY]: "#237aff",
-}
 
 export const TechniqueManager=(props) =>{
     const [show, setShow] = useState(false);
@@ -27,7 +20,20 @@ export const TechniqueManager=(props) =>{
 
     const loaded=()=>{
         setShow(true)
-        audioListener.resetTechniques();
+        const songId=audioListener.selectedSongId;
+        const userId=audioListener.user.userId;
+
+        fetch(`/audio/loadclips/${userId}/${songId}`).then((resp)=>{
+            if (resp.ok){
+                return resp.json();
+            }else{
+                alert("Cannot load User clip list")
+            }
+        }).then((data)=>{
+
+            audioListener.loadClipList(data);
+
+        })
     }
     const addClip = (technique) => {
         audioListener.addClipToTechnique(technique)
