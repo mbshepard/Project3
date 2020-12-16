@@ -22,9 +22,9 @@ export class ClipContainer extends Component {
             if(range) {
                 const secs = Math.floor(range.end - range.start);
                 if ( secs > 10) {
-                    const id = new Date().getTime();
-                    const score=7;//todo for testing only
-                    const clipList = [...this.state.clipList, {id,score, ...range}];
+                    const clipNum = new Date().getTime();
+                    const score=1;
+                    const clipList = [...this.state.clipList, {clipNum,score, ...range}];
                     this.setState({clipList});
                 } else {
                     alert(`Selected clips of ${secs} is less than 10secs`)
@@ -52,6 +52,15 @@ export class ClipContainer extends Component {
         this.setState({clipList});
     };
 
+    updateScore=(id,score)=>{
+        const clipList=this.state.clipList;
+        clipList.forEach((itm)=>{
+            if (itm.id===id){
+                itm.score=score;
+            }
+        });
+        this.setState({clipList})
+    }
     render() {
         const {clipList} = this.state;
         const {technique} = this.props;
@@ -59,19 +68,22 @@ export class ClipContainer extends Component {
         return <>
             {clipList && clipList.length > 0 &&
 
-            <div className={"clip-container"} style={{background: containerBGs[technique]}}>
-                <ul id={"navlist"}>
-                    {clipList.map((clip, idx) => {
-                        return <li key={clip.id}>
-                            <AudioClip
-                                id={clip.id}
-                                start={clip.start}
-                                end={clip.end}
-                                onDelete={() => this.deleteClip(clip.id)}
-                            />
-                        </li>
-                    })}
-                </ul>
+            <div className={"clip-container"}
+                 style={{background: containerBGs[technique] }}>
+
+                {clipList.map((clip, idx) => {
+                    return  <AudioClip key={clip.id}
+                            id={clip.id}
+                            start={clip.start}
+                            end={clip.end}
+                            score={clip.score}
+                            onDelete={() => this.deleteClip(clip.id)}
+                            updateScore={this.updateScore}
+                        />
+
+                })}
+
+
             </div>
             }
         </>

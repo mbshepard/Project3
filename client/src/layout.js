@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from "react";
 import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import Home from './pages/home';
 import NewUser from './pages/Authentication/newUser';
@@ -10,16 +10,22 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Layout() {
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+        //Todo Here we check the user context to know if a user had previously log in
+        // setUser(user from context); // This method will be called to set the
+        // user if it exist in the context
+    }, []);
     return(
         <Router>
             <UserProvider>
                 <div>
                     <Switch>
                         <PrivateRoute path='/home'>
-                            <Home/>
+                            <Home setUser={setUser}/>
                         </PrivateRoute>
                         <Route exact path="/NewUser" component={NewUser} />
-                        <Route exact path="/" component={(props) => <ExistingUser {...props} />} />
+                        <Route exact path="/" component={(props) => <ExistingUser {...props} setUser={setUser} />} />
                     </Switch>
                 </div>
             </UserProvider>

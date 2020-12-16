@@ -14,6 +14,7 @@ export {
 
 export {
     BiMessageCheck as ReviewIcon,
+    BiSend as SendIcon
 } from "react-icons/bi"
 
 

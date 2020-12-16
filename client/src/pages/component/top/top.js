@@ -46,7 +46,7 @@ const Top = (props) => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Link to="/" className="nav-link"><HomeIcon/>Home</Link>
+                    <Link to="/home" className="nav-link"><HomeIcon/>Home</Link>
                     <Link to="/analyze" className="nav-link"><AnalysisIcon/>Analyze </Link>
                     <Link to="/listen" className="nav-link"> <ListenIcon/> Listen</Link>
                     <Link to="review" className="nav-link"><ReviewIcon/>Review </Link>

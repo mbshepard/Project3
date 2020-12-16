@@ -13,6 +13,7 @@ export class AudioClip extends Component {
         start:this.props.start,
         end:this.props.end,
         currentPos:this.props.start,
+        score:this.props.score,
     };
     componentDidMount() {
         this.context.audioListener.registerClip(this);
@@ -63,12 +64,17 @@ export class AudioClip extends Component {
         return this.state.id;
     };
 
+    updateScore=(e)=>{
+        const score=parseInt(e.target.value);
+        this.setState({score})
+        this.props.updateScore(this.props.id,score)
+    }
     render() {
 
-        const {playing,posValue,start,end}=this.state;
+        const {playing,posValue,start,end,score}=this.state;
         const playMap = _.range(Math.floor(start), Math.floor(end) + 1);
         const max = playMap.length;
-        const w = 100;//max * 11;
+        const w = 140;//max * 11;
 
 
         const changed = (e) => {
@@ -86,9 +92,14 @@ export class AudioClip extends Component {
                        min={0}
                        max={max}
                        value={posValue}
-                       style={{width: "60%"}}
+                       style={{width: "40%"}}
                 />
                 <DeleteClipIcon onClick={this.deleteClip}/>
+                <input type="number"  value={score} min="1" max="10"
+                    style={{height:20,width:40}}
+                       onChange={this.updateScore}
+                />
+
                 </span>
             </div>
         );

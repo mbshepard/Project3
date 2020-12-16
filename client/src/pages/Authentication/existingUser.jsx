@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { NavLink, Link } from "react-router-dom";
 import { Form, Row, Col, Button} from 'react-bootstrap';
 import { UseUserContext } from '../Authentication/Components/userContext';
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {SoundXContext} from "../../xsound/AudioProvider";
 
 const ExistingUser = (props) => {
     console.log(props);
@@ -11,7 +12,10 @@ const ExistingUser = (props) => {
     const password = useRef();
     const [user, dispatch] = UseUserContext();
 
+    const {audioListener} = useContext(SoundXContext);
+
     const login = () => {
+        
         let loginObj = {
             email: username.current.value,
             password: password.current.value,
@@ -32,6 +36,12 @@ const ExistingUser = (props) => {
                     type: 'loggedInUser',
                     payload: data,
                 })
+                ////------------------------------------>
+                const user={name:"Ralph",userId:"2"};
+                audioListener.user=user;
+                props.setUser(user)
+                ////------------------------------------>
+
                 props.history.push('/home')
             }).catch((error) => {
                 console.error('Error:', error)

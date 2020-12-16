@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Layout from './layout';
 import Home from './pages/home';
 import './index.css';
-import AudioProvider from './xsound/AudioProvider';
+import {AudioProvider} from './xsound/AudioProvider';
 
 ReactDOM.render(
   <React.StrictMode>

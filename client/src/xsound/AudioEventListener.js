@@ -1,11 +1,5 @@
 import {TECHNIQUE_IMAGERY, TECHNIQUE_METAPHOR, TECHNIQUE_PUNCH_LINE} from "../util/Constants";
 
-const filterClips=(clips,tech)=>{
-    return clips.filter((itm)=>{
-        return itm.techniqueType===tech;
-    });
-}
-
 class AudioEventListener {
 
     registeredClips = [];
@@ -134,7 +128,11 @@ class AudioEventListener {
         for (const [techName, tech] of Object.entries(this.techniqueGroups)) {
             const {clipList}=tech.state;
             const newList=clipList.map((itm)=>{
-                return {...itm,techniqueType:techName,songId:this.selectedSongId,userId:"????"}
+                return {...itm,
+                    techniqueType:techName,
+                    songId:this.selectedSongId,
+                    userId:this.user.userId
+                }
             });
             allClips.push(...newList);
         }
