@@ -16,8 +16,9 @@ const Analyze = () => {
 
     const saveClips=()=>{
         const allClips=audioListener.getClipList();
+        const {userId} = audioListener.user;
         if (allClips && allClips.length>0) {
-            fetch("/audio/saveclips", {
+            fetch(`/audio/saveclips/${userId}`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
