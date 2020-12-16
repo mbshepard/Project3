@@ -90,7 +90,7 @@ app.get('/audio/load/:id', async (req, res) => {
     stream.pipe(res);
 });
 
-app.get('/audio/loadclips/:userId/:songId', (req, res) => {
+app.get('/audio/loadclips/:userId/:songId', async(req, res) => {
   const {userId, songId} = req.params;
   const clipFinder = await db.Clip.find({userId: userId, songId: songId});
 
