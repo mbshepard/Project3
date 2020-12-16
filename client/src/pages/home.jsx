@@ -11,13 +11,13 @@ import Review from "./review";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Home = () => {
+const Home = (props) => {
     return (
             <div className="App">
                 <Router>
-                    <Top />
+                    <Top  setUser={props.setUser} />
                     <div style={{ height: "calc(100vh - 120px)", }}>
-                        <Route exact path="/" component={LandingPage} />
+                        <Route exact path="/home" component={LandingPage} />
                         <Route exact path="/analyze" component={Analyze} />
                         <Route exact path="/listen" component={Listen} />
                         <Route exact path="/review" component={Review} />

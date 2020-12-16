@@ -40,10 +40,17 @@ const Analyze = () => {
 
     return <div>
 
-        {/*<TimeOverviewAnalyzer apiUrl={""} key={"analyzer"} w={800} h={100} />*/}
         <div style={{width:800,height:250}}/>
         <TechniqueManager/>
-        <Button onClick={saveClips}>Save</Button>
+        <div style={{
+            display:"flex",
+            flexDirection:"row-reverse",
+            width:"70%",
+            marginTop:50
+        }}>
+            <Button variant="success" onClick={saveClips}>Save</Button>
+            <Button  variant="danger" style={{marginRight:20}}>Clear</Button>
+        </div>
     </div>;
 }
  
