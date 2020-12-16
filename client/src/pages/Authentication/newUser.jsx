@@ -15,8 +15,6 @@ const NewUser = () => {
         let inputObj = {
             email: username.current.value,
             password: password.current.value,
-            // fName: firstName.current.value,
-            // lName: lastName.current.value,
         }
         fetch('/auth/createuser', {
             method: 'POST',
@@ -86,62 +84,6 @@ const NewUser = () => {
         </div>
     );
 }
-
-
-
-
-
-// const NewUser = () => {
-//     return(
-//         <div id="form">
-//             <Form md={{ span: 6, offset: 3 }}>
-//                 <Row>
-//                     <Col md={{ span: 4, offset: 4 }}>
-//                         <Form.Group controlId="formBasicEmail">
-//                             <Form.Label>Full Name</Form.Label>
-//                             <Form.Control type="email" placeholder="First Name" />
-//                         </Form.Group>
-//                     </Col>
-//                 </Row>
-//                 <Row>
-//                     <Col md={{ span: 4, offset: 4 }}>
-//                         <Form.Group controlId="formBasicEmail">
-//                             <Form.Control type="email" placeholder="Last Name" />
-//                         </Form.Group>
-//                     </Col>
-//                 </Row>
-//                 <Row>
-//                     <Col md={{ span: 4, offset: 4 }}>
-//                         <Form.Group controlId="formBasicEmail">
-//                             <Form.Label>Authentication</Form.Label>
-//                             <Form.Control type="email" placeholder="login@email.com" />
-//                             <Form.Text className="text-muted">
-//                                 We'll never share your email with anyone else.
-//                             </Form.Text>
-//                         </Form.Group>
-//                     </Col>
-//                 </Row>
-//                 <Row>
-//                     <Col md={{ span: 4, offset: 4 }}>
-//                         <Form.Group controlId="formBasicEmail">
-//                             <Form.Control type="email" placeholder="Password" />
-//                         </Form.Group>
-//                     </Col>
-//                 </Row>
-//                 <Row>
-//                     <Col md={{ span: 4, offset: 4 }}>
-//                         <Button> Create New User</Button>
-//                     </Col>
-//                 </Row>
-//                 <Row>
-//                     <Col md={{ span: 4, offset: 4 }}>
-//                         <NavLink exact to="/" activeClassName="active"> Already a User? </NavLink>
-//                     </Col>
-//                 </Row>
-//             </Form>  
-//         </div>
-//     )
-// }
 
 export default NewUser;
 

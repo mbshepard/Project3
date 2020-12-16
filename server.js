@@ -7,12 +7,12 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 const path = require('path');
 const fs = require('fs');
-// const mongojs = require("mongojs");
+
 const mongoose = require("mongoose");
 const db = require("./models");
 
 // // Route/File imports
-// const audioList = require('./audioList');
+
 const passport = require ('./passport/passport');
 const auth = require('./Routes/auth');
 const router = require('./Routes/api');
@@ -39,16 +39,6 @@ mongoose.connect( mongo || "mongodb://localhost/users", {
     useFindAndModify: false
 });
 
-// Express session
-// app.use(
-//   session({
-//     secret: 'secret work',
-//     resave: false,
-//     saveUninitialized: true, 
-//     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-//   })
-// );
-
 // Passport middleware  
 app.use(passport.initialize());
 app.use(passport.session());
@@ -65,7 +55,7 @@ app.get('/audio/playlist', async (req, res) => {
   const songs = await db.Song.find({});
   try {
     const mappedList=songs.map((itm)=>{
-      return {id:itm.id, title: itm.nameOfSong, artists: itm.artists};
+      return {id:itm.id, title: itm.nameOfSong, artists: itm.artist};
     });
       return res.send(mappedList);
   } catch (error) {
