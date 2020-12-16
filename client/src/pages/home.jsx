@@ -2,11 +2,14 @@ import React from 'react';
 import { Router } from "react-router-dom";
 import Top from "./component/top/top";
 import Root from "./rootPage";
+import AudioProvider from '../xsound/AudioProvider';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
     return (
+        <AudioProvider>
         <div className="App">
             <Router>
                 <Top />
@@ -15,6 +18,7 @@ const Home = () => {
                 </div>   
             </Router>
         </div>
+        </AudioProvider>
     )
 }
 

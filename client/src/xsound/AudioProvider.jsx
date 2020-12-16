@@ -4,7 +4,7 @@ import AudioEventListener from "./AudioEventListener";
 
 export const SoundXContext = createContext();
 
-export class AudioProvider extends Component {
+class AudioProvider extends Component {
     render() {
         const audio = new AudioService();
         const audioListener = new AudioEventListener(audio)
@@ -19,3 +19,4 @@ export class AudioProvider extends Component {
     }
 }
 
+export default AudioProvider
