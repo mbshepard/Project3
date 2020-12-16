@@ -37,7 +37,8 @@ const ExistingUser = (props) => {
                     payload: data,
                 })
                 ////------------------------------------>
-                const user={name:"Ralph",userId:"2"};
+                const user={userId:data._id};
+                
                 audioListener.user=user;
                 props.setUser(user)
                 ////------------------------------------>

@@ -90,32 +90,34 @@ app.get('/audio/load/:id', async (req, res) => {
     stream.pipe(res);
 });
 
-app.get('/audio/loadclips/:userId/:songId', (req, res) => {
+app.get('/audio/loadclips/:userId/:songId', async(req, res) => {
+  const {userId, songId} = req.params;
+  const clipFinder = await db.Clip.find({userId: userId, songId: songId});
 
-    const {userId, songId} = req.params;
-
-    //todo=============Database query========================
-    //todo use the "userId" and "songId" to load all clips
-    // from database and replace "userClipList"
-    const filteredClips=userClipList.filter((itm)=>{
-        return `${itm.songId}`===songId && `${itm.userId}`===userId;
+  //todo=============Database query========================
+  //todo use the "userId" and "songId" to load all clips
+  // from database and replace "userClipList"
+  try {
+    const filteredClips=clipFinder.filter((itm)=>{
+      return `${itm.songId}`===songId && `${itm.userId}`===userId;      
     })
-    //todo=====================================================
-
-    //send back to client
     res.send(filteredClips);
-
-
+  } catch (error) {
+    console.log(error)
+  }
 })
 
-app.post('/audio/saveclips', (req, res) => {
-    const clipList = req.body;
-
-    console.log(clipList);
-    //todo - update or insert each clip to the database or
-    // delete the old list and update with "clipList"
-
-    res.send(clipList);
+app.post('/audio/saveclips', async (req, res) => {
+  const clipList = req.body;
+  const clips = db.Clip.create(clipList);
+  console.log(clipList);
+  //todo - update or insert each clip to the database or
+  // delete the old list and update with "clipList"
+  try {
+    res.send(clips)
+  } catch (error) {
+   console.log(error) 
+  }
 });
 
 

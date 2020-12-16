@@ -16,6 +16,9 @@ const clipSchema = new Schema({
     },
     score: {
         type: Number
+    },
+    clipNum: {
+        type: Number
     }
 });
 
