@@ -5,23 +5,6 @@ const Db = require('../models')
 const User = require('../models/userData')
 const router = express.Router()
 
-// router.post('/register_login', (req, res, next) => {
-//   passport.authenticate('local', function (err, user, info) {
-//     if (err) {
-//       return res.status(400).json({ errors: err })
-//     }
-//     if (!user) {
-//       return res.status(400).json({ errors: 'No user found' })
-//     }
-//     req.logIn(user, function (err) {
-//       if (err) {
-//         return res.status(400).json({ errors: err })
-//       }
-//       return res.status(200).json(user)
-//     })
-//   })(req, res, next)
-// })
-
 router.post('/createuser', (req, res, next) => {
   passport.authenticate('local', function (err, user, info) {
     if (err) {
@@ -45,25 +28,5 @@ router.post('/createuser', (req, res, next) => {
     })
   })(req, res, next)
 })
-
-// router.post('/createuser', async ({ body }, res) => {
-//   const user = await User.create(body)
-//     try {
-//       res.send(user) 
-//     } catch (error) {
-//       console.log(error)
-//     }
-//     // .then((done) => res.json(done))
-//     // .catch((err) => res.status(400).json(err))
-// })
-
-
-
-// router.post('/register_login', ({ body }, res) => {
-//   console.log(body);
-//   Db.User.create(body)
-//     .then((done) => res.json(done))
-//     .catch((err) => res.status(400).json(err))
-// })
 
 module.exports = router
