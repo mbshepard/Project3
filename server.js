@@ -11,27 +11,28 @@ const fs = require('fs');
 const mongoose = require("mongoose");
 const db = require("./models");
 
-// Route/File imports
+// // Route/File imports
 // const audioList = require('./audioList');
-// const passport = require ('./passport/passport');
-// const auth = require('./Routes/auth');
-// const router = require('./Routes/api');
+const passport = require ('./passport/passport');
+const auth = require('./Routes/auth');
+const router = require('./Routes/api');
 
 const processENV = process.env.NODE_ENV === 'production'
-dotenv.config({silent: processENV});
+// dotenv.config({silent: processENV});
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-// app.use(morgan('tiny'));
+app.use(morgan('tiny'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(express.static('client/build'));
 
+const mongo = "mongodb+srv://mernBoilerplate:MERN12345@cluster0.t3vsn.mongodb.net/songSnip?retryWrites=true&w=majority"
 
 // Loading MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/users", {
+mongoose.connect( mongo || "mongodb://localhost/users", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -49,16 +50,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/users", {
 // );
 
 // Passport middleware  
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
-// app.use('/auth', auth);
-// app.use('/api', router);
+app.use('/auth', auth);
+app.use('/api', router);
 
 // Loading all music interface
-// app.get("/api/songs", (req, res) => {
-//   res.send(sList.module);
-//   });
+app.get("/api/songs", (req, res) => {
+  res.send(sList.module);
+  });
 
 app.get('/audio/playlist', async (req, res) => {
   const songs = await db.Song.find({});
