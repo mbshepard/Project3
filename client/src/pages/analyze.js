@@ -41,23 +41,22 @@ const Analyze = () => {
     }
 
     return <div>
-        <Container fluid>
-            <Row>
+        <Container fluid style={{backgroundColor: "darkgrey"}}>
+            <Row style={{marginBottom: "25px"}}>
                 <div style={{width:'100%',height:250, backgroundColor: "rgb(38, 50, 56)"}}/>
             </Row>
             
             <TechniqueManager/>
             
-            <Row style>
+            <Row>
                 <div style={{
-                    display:"flex",
-                    flexDirection:"row-reverse",
-                    width:"70%",
+                    width:"100%",
                     marginTop:50,
-                    backgroundColor: "rgb(38, 50, 56)"
+                    backgroundColor: "rgb(38, 50, 56)",
+                    boxShadow: "10px 20px 30px"
                 }}>
-                    <Button variant="success" onClick={saveClips}>Save</Button>
-                    <Button  variant="danger">Clear</Button>
+                    <Button variant="success" onClick={saveClips} style={{margin: "25px"}}>Save</Button>
+                    <Button  variant="danger" style={{margin: "25px"}}>Clear</Button>
                 </div>
             </Row>
         </Container>

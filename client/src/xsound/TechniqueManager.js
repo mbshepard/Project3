@@ -51,23 +51,23 @@ export const TechniqueManager=(props) =>{
         </div>
     }
     return (
-        <Row style={{display: 'block'}}>
+        <div style={{justifyContent: "space-evenly"}}>
             { show &&
                 <div style={{justifyContent: "space-evenly"}}>
                     <CardColumns>
-                        <Card bg="dark" text="light" border="light" style={{height: "30rem"}}>
+                        <Card bg="dark" text="light" border="light" style={{height: "30rem", boxShadow: "10px 5px 15px black"}}>
                             <Card.Header className={"technique"}><AddClipButton key={1} technique={TECHNIQUE_METAPHOR}/></Card.Header>
                             <Card.Body style={{height: "20rem"}}>
                                 <ClipContainer technique={TECHNIQUE_METAPHOR} max={4}/>
                             </Card.Body>
                         </Card>
-                        <Card bg="dark" text="light" border="light" style={{height: "30rem"}}>
+                        <Card bg="dark" text="light" border="light" style={{height: "30rem", boxShadow: "10px 5px 15px black"}}>
                             <Card.Header className={"technique"}><AddClipButton key={2} technique={TECHNIQUE_PUNCH_LINE}/></Card.Header>
                             <Card.Body style={{height: "20rem"}}>
                                 <ClipContainer technique={TECHNIQUE_PUNCH_LINE} max={2}/>
                             </Card.Body>
                         </Card>
-                        <Card bg="dark" text="light" border="light" style={{height: "30rem"}}>
+                        <Card bg="dark" text="light" border="light" style={{height: "30rem" , boxShadow: "10px 5px 15px black"}}>
                             <Card.Header className={"technique"}><AddClipButton key={3} technique={TECHNIQUE_IMAGERY}/></Card.Header>
                             <Card.Body style={{height: "20rem"}}>
                                 <ClipContainer technique={TECHNIQUE_IMAGERY} max={3}/>
@@ -76,6 +76,6 @@ export const TechniqueManager=(props) =>{
                     </CardColumns>
                 </div>
             }
-        </Row>
+        </div>
     );
 };
