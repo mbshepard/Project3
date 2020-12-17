@@ -68,7 +68,7 @@ export class ClipContainer extends Component {
         return <>
             {clipList && clipList.length > 0 &&
                 clipList.map((clip, idx) => {
-                    return  <div className={"clip-container"} style={{background: containerBGs[technique], justifyContent: "center", margin: "25px 0px"}}>
+                    return  <div className={"clip-container"} style={{background: containerBGs[technique]}}>
                                 <AudioClip key={clip.id}
                                     id={clip.id}
                                     start={clip.start}

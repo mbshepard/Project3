@@ -1,9 +1,6 @@
-
-
 .App {
   text-align: center;
 }
-
 
 @keyframes App-logo-spin {
   from {
@@ -28,47 +25,42 @@ canvas {
   border-radius: 5px;
 }
 
-#navlist li
-{
+#navlist li {
   display: inline-grid;
   list-style-type: none;
   padding-right: 20px;
   float: left;
 }
 
-ul{
-  height:25px;
+ul {
+  height: 25px;
 }
 
-.clip-container{
-  display:flex;
-  align-items:center;
-  border:1px solid lightgray;
-  width:70%;
+.clip-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
   border-radius: 5px;
   height: 50px;
-
+  justify-content: center;
+  margin: 25px 0px;
 }
 
-.technique li{
+.technique li {
   display: inline-grid;
   list-style-type: none;
   margin-right: 10px;
   float: left;
-  border-radius:3px;
+  border-radius: 3px;
 }
-.timefft li{
+.timefft li {
   display: inline-grid;
   list-style-type: none;
   margin-right: 5px;
 }
 
-.audio-clip{
-  height: 25px;
+.audio-clip {
   border: 1px solid snow;
   background: lightgray;
-  /*padding-top:2px;*/
-  border-radius:3px;
-  margin-left: 20px;
-
+  border-radius: 3px;
 }

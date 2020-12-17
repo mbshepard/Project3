@@ -38,7 +38,7 @@ const Top = (props) => {
         props.setUser(null);
     }
 
-    return <div style={{height: 120,}}>
+    return <div style={{height: 120, backgroundColor: "rgb(38, 50, 56)"}}>
 
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

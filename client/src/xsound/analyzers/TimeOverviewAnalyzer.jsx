@@ -83,7 +83,7 @@ export class TimeOverviewAnalyzer extends Component {
                     <canvas ref={this.canvasRef} width={w} height={h}></canvas>
                     <br/>
                     {show &&
-                        <div><span>{startMin}</span> - <span>{endMin}</span><br/>
+                        <div><span style={{color: "whitesmoke"}}>{startMin} -</span> <span style={{color: "whitesmoke"}}>{endMin}</span><br/>
                             <div onClick={this.toggle}>{this.state.playing ? <AnimatePauseIcon/> :
                                 <AnimatePlayIcon/>}</div>
                         </div>   }
