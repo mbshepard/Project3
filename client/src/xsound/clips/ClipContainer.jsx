@@ -38,8 +38,8 @@ export class ClipContainer extends Component {
     };
 
 
-    deleteClip = (id) => {
-        const clipList = this.state.clipList.filter((itm) => itm.id !== id);
+    deleteClip = (clipNum) => {
+        const clipList = this.state.clipList.filter((itm) => itm.clipNum !== clipNum);
         this.setState({clipList});
     };
 
@@ -52,10 +52,10 @@ export class ClipContainer extends Component {
         this.setState({clipList});
     };
 
-    updateScore=(id,score)=>{
+    updateScore=( clipNum,score)=>{
         const clipList=this.state.clipList;
         clipList.forEach((itm)=>{
-            if (itm.id===id){
+            if (itm. clipNum=== clipNum){
                 itm.score=score;
             }
         });
@@ -67,6 +67,7 @@ export class ClipContainer extends Component {
 
         return <>
             {clipList && clipList.length > 0 &&
+
                 clipList.map((clip, idx) => {
                     return  <div className={"clip-container"} style={{background: containerBGs[technique]}}>
                                 <AudioClip key={clip.id}

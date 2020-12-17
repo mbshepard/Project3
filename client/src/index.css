@@ -64,3 +64,8 @@ ul {
   background: lightgray;
   border-radius: 3px;
 }
+
+.navbar svg{
+background: transparent;
+}
+

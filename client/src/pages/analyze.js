@@ -15,11 +15,15 @@ const Analyze = () => {
 
 
     }, []);
+    const clearClips =()=>{
+        audioListener.resetTechniques();
+    }
 
     const saveClips=()=>{
         const allClips=audioListener.getClipList();
-        if (allClips && allClips.length>0) {
-            fetch("/audio/saveclips", {
+        const {userId} = audioListener.user;
+        const songId = audioListener.selectedSongId;
+            fetch(`/audio/saveclips/${userId}/${songId}`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,9 +38,9 @@ const Analyze = () => {
             }).then((data) => {
                 // console.log(data);
             });
-        }else{
-            alert("There is no analysis made in this page")
-        }
+        // }else{
+        //     alert("There is no analysis made in this page")
+        // }
 
     }
 

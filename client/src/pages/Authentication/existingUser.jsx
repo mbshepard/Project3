@@ -37,10 +37,15 @@ const ExistingUser = (props) => {
                     payload: data,
                 })
                 ////------------------------------------>
-                const user={userId:data._id};
+                const user={
+                    firstName:"",
+                    lastName:"",
+                    userId:data._id
+                };
                 
                 audioListener.user=user;
                 props.setUser(user)
+               
                 ////------------------------------------>
 
                 props.history.push('/home')

@@ -9,7 +9,7 @@ export class AudioClip extends Component {
     state = {
         playing: false,
         posValue: 0,
-        id:this.props.id,
+         clipNum:this.props. clipNum,
         start:this.props.start,
         end:this.props.end,
         currentPos:this.props.start,
@@ -24,7 +24,7 @@ export class AudioClip extends Component {
     }
 
     deleteClip=()=>{
-        this.props.onDelete(this.props.id);
+        this.props.onDelete(this.props. clipNum);
     }
 
     progress=(pos)=>{
@@ -50,9 +50,9 @@ export class AudioClip extends Component {
 
     toggle = () => {
         const {audio}=this.context;
-        const {id,playing,currentPos}=this.state;
+        const { clipNum,playing,currentPos}=this.state;
         if (!playing){
-            this.context.audioListener.requestFocus(id);
+            this.context.audioListener.requestFocus( clipNum);
             audio.jumpTo(currentPos)
         }
         audio.toggle();
@@ -61,13 +61,13 @@ export class AudioClip extends Component {
     };
 
     getId=()=>{
-        return this.state.id;
+        return this.state. clipNum;
     };
 
     updateScore=(e)=>{
         const score=parseInt(e.target.value);
         this.setState({score})
-        this.props.updateScore(this.props.id,score)
+        this.props.updateScore(this.props. clipNum,score)
     }
     render() {
 

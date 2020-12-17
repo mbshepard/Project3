@@ -7,16 +7,17 @@ import Button from "react-bootstrap/Button";
 
 const {Footer,Title,Header,Body}=Modal;
 
-const users=[
-    {firstName:"MMFirst",lastName:"LastAA", metaphorAvg:8,punchLineAvg:3,imageryAvg:6},
-    {firstName:"BBFirst",lastName:"LastBB", metaphorAvg:8,punchLineAvg:3,imageryAvg:6},
-    {firstName:"BBFirst",lastName:"LastCC", metaphorAvg:8,punchLineAvg:3,imageryAvg:6},
-];
+// const users=[
+//     {firstName:"MMFirst",lastName:"LastAA", metaphorAvg:8,punchLineAvg:3,imageryAvg:6},
+//     {firstName:"BBFirst",lastName:"LastBB", metaphorAvg:8,punchLineAvg:3,imageryAvg:6},
+//     {firstName:"BBFirst",lastName:"LastCC", metaphorAvg:8,punchLineAvg:3,imageryAvg:6},
+// ];
 
 const Review = () => {
     const {audioListener} = useContext(SoundXContext);
     const [currentSong, setCurrentSong] = useState(null);
     const [selectedUser, setSelectedUser] = useState(-1);
+    const [users, setUsers] = useState([]);
 
     const [showDetail, setShowDetail] = useState(false);
 
@@ -39,7 +40,17 @@ const Review = () => {
 
     const loaded = (duration, song) => {
         console.log(`From Review ${duration}`,song);
-        setCurrentSong(song)
+        setCurrentSong(song);
+        fetch(`/audio/review/${song.id}`).then((resp)=>{
+            if(resp.ok){
+                return resp.json();
+            }else{
+                alert("Cannot load reviews")
+            }
+        }).then((data)=>{
+            setUsers(data)
+        })
+
     };
     let fullName='';
     if(selectedUser>-1){
@@ -59,8 +70,7 @@ const Review = () => {
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>User Id</th>
                             <th>Metaphor (Avg)</th>
                             <th>Punch Line (Avg)</th>
                             <th>Imagery (Avg)</th>
@@ -72,11 +82,10 @@ const Review = () => {
                             users.map((aUser,idx) => {
                                 return <tr key={idx}>
                                     <td>{idx+1}</td>
-                                    <td>{aUser.firstName}</td>
-                                    <td>{aUser.lastName}</td>
-                                    <td>{aUser.metaphorAvg}</td>
-                                    <td>{aUser.punchLineAvg}</td>
-                                    <td>{aUser.imageryAvg}</td>
+                                    <td>{aUser.user}</td>
+                                    <td>{aUser.MetaphorAvg}</td>
+                                    <td>{aUser.Punch_lineAvg}</td>
+                                    <td>{aUser.ImageryAvg}</td>
                                     <td><SendIcon onClick={()=>handleShowDetail(idx)}
                                         style={{background:"transparent",color:"green"}}
                                         size={25}/>
