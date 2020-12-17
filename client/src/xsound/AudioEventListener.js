@@ -59,9 +59,9 @@ class AudioEventListener {
             this.progressX.stop()
         }
     }
-    requestFocus=(id)=>{
+    requestFocus=( clipNum)=>{
         this.stopAll()
-        this.currentClip=this.registeredClips.find((itm)=>itm.getId()===id);
+        this.currentClip=this.registeredClips.find((itm)=>itm.getId()=== clipNum);
     }
 
     loaded=(duration)=>{
