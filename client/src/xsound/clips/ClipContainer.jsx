@@ -67,24 +67,19 @@ export class ClipContainer extends Component {
 
         return <>
             {clipList && clipList.length > 0 &&
-
-            <div className={"clip-container"}
-                 style={{background: containerBGs[technique] }}>
-
-                {clipList.map((clip, idx) => {
-                    return  <AudioClip key={clip.id}
-                            id={clip.id}
-                            start={clip.start}
-                            end={clip.end}
-                            score={clip.score}
-                            onDelete={() => this.deleteClip(clip.id)}
-                            updateScore={this.updateScore}
-                        />
-
-                })}
-
-
-            </div>
+                clipList.map((clip, idx) => {
+                    return  <div className={"clip-container"} style={{background: containerBGs[technique], justifyContent: "center", margin: "25px 0px"}}>
+                                <AudioClip key={clip.id}
+                                    id={clip.id}
+                                    start={clip.start}
+                                    end={clip.end}
+                                    score={clip.score}
+                                    onDelete={() => this.deleteClip(clip.id)}
+                                    updateScore={this.updateScore}
+                                />
+                                <br />
+                            </div>
+                })
             }
         </>
     }
