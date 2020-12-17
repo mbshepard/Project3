@@ -16,6 +16,7 @@ const db = require("./models");
 const passport = require('./passport/passport');
 const auth = require('./Routes/auth');
 const router = require('./Routes/api');
+const { Clip } = require("./models");
 
 const processENV = process.env.NODE_ENV === 'production'
 // dotenv.config({silent: processENV});
@@ -107,11 +108,11 @@ app.get('/audio/loadclips/:userId/:songId', async (req, res) => {
   }
 })
 
-app.post('/audio/saveclips/:userId', async (req, res) => {
+app.post('/audio/saveclips/:userId/:songId', async (req, res) => {
   try {
-    const userId = req.params.userId;
+    const {userId, songId} = req.params;
     const clipList = req.body;
-    const query = { userId: userId }
+    const query = { userId:userId, songId:songId }
     const deleted = await db.Clip.deleteMany(query);
     // console.log(deleted.result.n + " document(s) deleted");
 
@@ -125,6 +126,14 @@ app.post('/audio/saveclips/:userId', async (req, res) => {
     console.log(error)
   }
 });
+app.get('/audio/review/:songId', async (req, res) => {
+const songId = req.params.songId;
+const query = {songId:songId}
+  const allClips = await db.Clip.find(query);
+res.send(allClips)
+});
+// {firstName:"MMFirst",lastName:"LastAA", metaphorAvg:8,punchLineAvg:3,imageryAvg:6},
+
 
 
 app.get("/*", (req, res, next) => {

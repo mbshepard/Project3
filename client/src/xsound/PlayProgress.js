@@ -2,15 +2,8 @@ import React, { Component, useState } from 'react';
 import { AnimatePauseIcon, AnimatePlayIcon } from "../util/appIcons";
 import { SoundXContext } from "./AudioProvider";
 import { round } from "./analyzers/TimeOverviewAnalyzer";
+import {nbSpace} from "../util/Constants"
 
-const nbSpace =(n)=>{
-    let result = "";
- for (let index = 0; index < n; index++) {
-     result = result + 
-     <span>&nbsp;</span>
- }
-    return  <span>&nbsp;</span> ;  
-} 
 export class PlayProgress extends Component {
     static contextType = SoundXContext;
 

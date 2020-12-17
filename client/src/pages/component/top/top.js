@@ -1,6 +1,6 @@
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {AnalysisIcon, HomeIcon, ListenIcon, LogoutIcon, ReviewIcon} from "../../../util/appIcons";
-import {Nav, Navbar} from 'react-bootstrap'
+import {Nav, Navbar, Button} from 'react-bootstrap'
 import {SongLoader} from "../../../xsound/SongLoader";
 import {PlayProgress} from "../../../xsound/PlayProgress"
 import {FFTAnalyze} from "../../../xsound/analyzers/FFTAnalyze";
@@ -8,12 +8,14 @@ import {TimeAnalyze} from "../../../xsound/analyzers/TimeAnalyze";
 import {TimeOverviewAnalyzer} from "../../../xsound/analyzers/TimeOverviewAnalyzer";
 import {Fragment, useContext, useEffect, useState} from "react";
 import {SoundXContext} from "../../../xsound/AudioProvider";
+import {nbSpace} from "../../../util/Constants"
 
 // const apiUrl = "http://localhost:3030";
 const apiUrl = "";
 
 
 const Top = (props) => {
+    const history = useHistory();
     const {audioListener} = useContext(SoundXContext);
     const [songs, setSongs] = useState(false);
     const [progress, setProgress] = useState(false);
@@ -36,6 +38,10 @@ const Top = (props) => {
 
     const logout=()=>{
         props.setUser(null);
+        setTimeout(()=>{
+            history.go("/")
+
+        })
     }
 
     return <div style={{height: 120,}}>
@@ -46,10 +52,10 @@ const Top = (props) => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Link to="/home" className="nav-link"><HomeIcon/>Home</Link>
-                    <Link to="/analyze" className="nav-link"><AnalysisIcon/>Analyze </Link>
-                    <Link to="/listen" className="nav-link"> <ListenIcon/> Listen</Link>
-                    <Link to="review" className="nav-link"><ReviewIcon/>Review </Link>
+                    <Link style={{border:"1px solid lightgray"}}to="/home" className="nav-link"><HomeIcon/>{nbSpace(1)} Home</Link>
+                    <Link style={{border:"1px solid lightgray"}}to="/analyze" className="nav-link"><AnalysisIcon/>{nbSpace(1)} Analyze </Link>
+                    <Link style={{border:"1px solid lightgray"}}to="/listen" className="nav-link"> <ListenIcon/> {nbSpace(1)} Listen</Link>
+                    <Link style={{border:"1px solid lightgray"}}to="review" className="nav-link"><ReviewIcon/>{nbSpace(1)} Review </Link>
 
                 </Nav>
                 <Nav>
@@ -58,7 +64,7 @@ const Top = (props) => {
 
                 </Nav>
                 <Nav>
-                    <LogoutIcon title={'Logout'} onClick={logout}/>
+                    <Button variant="secondary" size="sm" title={'Logout'} onClick={logout}>Logout</Button>
                 </Nav>
 
             </Navbar.Collapse>

@@ -7,3 +7,11 @@ export const containerBGs = {
     [TECHNIQUE_PUNCH_LINE]: "rgba(255,105,104,0.96)",
     [TECHNIQUE_IMAGERY]: "#237aff",
 }
+export const nbSpace =(n)=>{
+    let result = "";
+ for (let index = 0; index < n; index++) {
+     result = result + 
+     <span>&nbsp;</span>
+ }
+    return  <span>&nbsp;</span> ;  
+} 
