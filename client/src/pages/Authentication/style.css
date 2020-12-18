@@ -53,7 +53,7 @@
   align-items: center;
 } */
 
-/* Form.Group {
+Form.Group {
   width: 100%;
 }
 
@@ -75,9 +75,4 @@
 .fade-exit.fade-exit-active {
   opacity: 0;
   transition: opacity 150ms linear;
-} */
-
-label {
-  color: royalblue;
-  font-size: larger;
 }

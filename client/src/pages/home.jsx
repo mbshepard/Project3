@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Top from "./component/top/top";
-import Footer from "./component/footer/footer";
+
 import Analyze from "./analyze";
 import DetailedPage from "./detailedPage";
 import LandingPage from "./landingPage";
@@ -23,7 +23,6 @@ const Home = (props) => {
                         <Route exact path="/review" component={Review} />
                         <Route exact path="/detailed" component={DetailedPage} />
                     </div>
-                    <Footer />
                 </Router>
             </div>
     )

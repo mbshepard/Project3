@@ -17,7 +17,7 @@ const LandingPage = () => {
         padding: '20px',
         height: '60px',
         width: '100%',
-      }    
+      }
 
     return <div>
         <Container>
@@ -25,7 +25,7 @@ const LandingPage = () => {
                 <Container>
                     <Image src="https://fontmeme.com/permalink/201129/dca17d39fe55ca4aab3c3e7b4fee6c78.png"></Image>
                     <p>
-                 An app to rate snips of music by your favorite artists. Our app loads the song of your choice on XSound, once on queue with a few clicks you can pin point the exact snips of the song you like the most. Your snips get saved and on the review page you can leave a rating for your reference. 
+                 An app to rate snips of music by your favorite artists. Our app loads the song of your choice on XSound, once on queue with a few clicks you can pin point the exact snips of the song you like the most. Your snips get saved and on the review page you can leave a rating for your reference.
                     </p>
                 </Container>
             </Jumbotron>

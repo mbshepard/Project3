@@ -82,9 +82,15 @@ const ExistingUser = (props) => {
                                         <Button onClick={login}> Login </Button>
                                     </Col>
                                 </Row>
+                                <Row>
+                                    <Col md={{ span: 4, offset: 4 }}>
+                                        <NavLink to="/NewUser" activeClassName="active"> Create new account. </NavLink>
+                                    </Col>
+                                </Row>
                             </Form>  
                         </div>
                     </div>
+                    <Link to="/home"> Home </Link>
                 </div>
             </div>
         );

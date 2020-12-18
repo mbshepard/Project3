@@ -44,10 +44,10 @@ const Top = (props) => {
         })
     }
 
-    return <div style={{height: 120, backgroundColor: "rgb(38, 50, 56)"}}>
+    return <div style={{height: 120,}}>
 
 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="white">
             <Navbar.Brand href="/">BaRs</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
