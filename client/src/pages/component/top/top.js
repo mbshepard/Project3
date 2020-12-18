@@ -19,7 +19,7 @@ const Top = (props) => {
     const {audioListener} = useContext(SoundXContext);
     const [songs, setSongs] = useState(false);
     const [progress, setProgress] = useState(false);
-    const [top, setsetTop] = useState(-300);
+    const [top, setsetTop] = useState(-600);
 
     useEffect(() => {
         audioListener.showTopNav=showTopNav;
@@ -32,7 +32,7 @@ const Top = (props) => {
     const showTopNav=(songs,progress,timeOverView)=>{
         setSongs(songs);
         setProgress(progress);
-        const top=timeOverView?120:-300;
+        const top=timeOverView?0:-600;
         setsetTop(top);
     };
 
@@ -44,11 +44,14 @@ const Top = (props) => {
         })
     }
 
-    return <div style={{height: 120,}}>
+    return <div style={{height: 120, backgroundColor: "rgb(38, 50, 56)"}}>
 
 
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="white">
-            <Navbar.Brand href="/">BaRs</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar.Brand href="/">
+                <span style={{fontFamily: "fantasy",
+                    fontStyle: "italic"}}>SongSnip</span>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">

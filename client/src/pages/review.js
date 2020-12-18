@@ -58,7 +58,7 @@ const Review = () => {
     }
     return <div>
 
-        <h3>Review Page</h3>
+        {/*<h3>Review Page</h3>*/}
         {currentSong &&
             <>
                 {currentSong.title}<br/>

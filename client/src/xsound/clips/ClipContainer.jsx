@@ -55,7 +55,7 @@ export class ClipContainer extends Component {
     updateScore=( clipNum,score)=>{
         const clipList=this.state.clipList;
         clipList.forEach((itm)=>{
-            if (itm. clipNum=== clipNum){
+            if (itm.clipNum=== clipNum){
                 itm.score=score;
             }
         });
@@ -68,23 +68,19 @@ export class ClipContainer extends Component {
         return <>
             {clipList && clipList.length > 0 &&
 
-            <div className={"clip-container"}
-                 style={{background: containerBGs[technique] }}>
-
-                {clipList.map((clip, idx) => {
-                    return  <AudioClip key={clip. clipNum}
-                             clipNum={clip. clipNum}
-                            start={clip.start}
-                            end={clip.end}
-                            score={clip.score}
-                            onDelete={() => this.deleteClip(clip. clipNum)}
-                            updateScore={this.updateScore}
+                clipList.map((clip, idx) => {
+                    return  <div className={"clip-container"} style={{background: containerBGs[technique]}}>
+                        <AudioClip key={clip. clipNum}
+                                   clipNum={clip.clipNum}
+                                   start={clip.start}
+                                   end={clip.end}
+                                   score={clip.score}
+                                   onDelete={() => this.deleteClip(clip.clipNum)}
+                                   updateScore={this.updateScore}
                         />
-
-                })}
-
-
-            </div>
+                                <br />
+                            </div>
+                })
             }
         </>
     }

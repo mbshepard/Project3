@@ -28,8 +28,9 @@ export class FFTAnalyze extends Component{
         const {w, h} = this.props;
 
         return (
-            <div>
-                {this.state.show &&
+            <div className="analyzerView">
+
+            {this.state.show &&
                 <svg ref={this.canvasRef} width={w} height={h}> </svg>
                 }
             </div>
