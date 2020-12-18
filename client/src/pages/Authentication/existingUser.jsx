@@ -73,7 +73,7 @@ const ExistingUser = (props) => {
                                     <Col md={{ span: 4, offset: 4 }}>
                                         <Form.Group controlId="formPassword">
                                             <Form.Label>Password</Form.Label>
-                                            <Form.Control ref={password} type="email" placeholder="Password" />
+                                            <Form.Control ref={password} type="password" placeholder="Password" />
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -82,15 +82,9 @@ const ExistingUser = (props) => {
                                         <Button onClick={login}> Login </Button>
                                     </Col>
                                 </Row>
-                                <Row>
-                                    <Col md={{ span: 4, offset: 4 }}>
-                                        <NavLink to="/NewUser" activeClassName="active"> Create new account. </NavLink>
-                                    </Col>
-                                </Row>
                             </Form>  
                         </div>
                     </div>
-                    <Link to="/home"> Home </Link>
                 </div>
             </div>
         );

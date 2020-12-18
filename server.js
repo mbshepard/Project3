@@ -21,7 +21,7 @@ const { Clip } = require("./models");
 const processENV = process.env.NODE_ENV === 'production'
 // dotenv.config({silent: processENV});
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 const app = express();
 
 app.use(morgan('tiny'));
