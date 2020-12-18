@@ -43,6 +43,13 @@ const Analyze = () => {
         // }
 
     }
+    var phantom = {
+        display: 'block',
+        padding: '20px',
+        height: '60px',
+        width: '100%',
+      }    
+
 
     return <div>
         <Container fluid style={{backgroundColor: "darkgrey"}}>
@@ -64,6 +71,7 @@ const Analyze = () => {
                 </div>
             </Row>
         </Container>
+        <div style={phantom}></div>
     </div>;
 }
  
