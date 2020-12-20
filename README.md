@@ -19,6 +19,8 @@
   -[Tests](#tests)
 
   -[Questions](#questions)
+  
+  -[Credits](#credits)
 
   ## Installation
 
@@ -42,6 +44,16 @@
 
   ## Questions
 
-  If you have any questions about the repo, open an issue or contact me directly at egomezfax19@gmail.com. You can find more of my work at [www.github.com/egome019](https://github.com/egome019)
+  If you have any questions about the repo, open an issue or contact us directly at egomezfax19@gmail.com, Chukwuanumba@gmail.com, abraham.glez09@gmail.com, or michael.shepard8@gmail.com.
+  
+   ## Credit
+  
+  - [Abraham Gonzalez](https://github.com/agonzalez57)
+  
+  - [Ralph Anumba](https://github.com/Ranumba89)
+  
+  - [Michael Shepard](https://github.com/mbshepard)
+  
+  - [Erik Gomez](https://github.com/egome019)
 
   
