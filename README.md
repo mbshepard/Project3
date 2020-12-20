@@ -20,6 +20,8 @@
 
   -[Questions](#questions)
   
+  -[Demonstration](#demonstration)
+  
   -[Credits](#credits)
 
   ## Installation
@@ -45,6 +47,10 @@
   ## Questions
 
   If you have any questions about the repo, open an issue or contact us directly at egomezfax19@gmail.com, Chukwuanumba@gmail.com, abraham.glez09@gmail.com, or michael.shepard8@gmail.com.
+  
+  ## Demonstration
+  [Click here](https://tranquil-ocean-58611.herokuapp.com/analyze) to be directed to the application.
+  ![](assets/SongSnip.png)
   
    ## Credit
   
