@@ -22,7 +22,7 @@
   
   -[Demonstration](#demonstration)
   
-  -[Credits](#credits)
+  -[Credit](#credit)
 
   ## Installation
 
