@@ -74,7 +74,7 @@ export class AudioClip extends Component {
         const {playing,posValue,start,end,score}=this.state;
         const playMap = _.range(Math.floor(start), Math.floor(end) + 1);
         const max = playMap.length;
-        const w = 140;//max * 11;
+        const w = "90%";//max * 11;
 
 
         const changed = (e) => {
@@ -92,13 +92,13 @@ export class AudioClip extends Component {
                        min={0}
                        max={max}
                        value={posValue}
-                       style={{width: "40%"}}
+                       style={{width: "74%"}}
                 />
-                <DeleteClipIcon onClick={this.deleteClip}/>
                 <input type="number"  value={score} min="1" max="10"
                     style={{height:20,width:40}}
                        onChange={this.updateScore}
                 />
+                <DeleteClipIcon onClick={this.deleteClip}/>
 
                 </span>
             </div>

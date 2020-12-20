@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Top from "./component/top/top";
-
+import Footer from "./component/footer/footer";
 import Analyze from "./analyze";
 import DetailedPage from "./detailedPage";
 import LandingPage from "./landingPage";
@@ -16,13 +16,14 @@ const Home = (props) => {
             <div className="App">
                 <Router>
                     <Top  setUser={props.setUser} />
-                    <div style={{ height: "calc(100vh - 120px)", }}>
+                    <div style={{ height: "calc(100vh - 120px)", overflow:"auto"}}>
                         <Route exact path="/home" component={LandingPage} />
                         <Route exact path="/analyze" component={Analyze} />
                         <Route exact path="/listen" component={Listen} />
                         <Route exact path="/review" component={Review} />
                         <Route exact path="/detailed" component={DetailedPage} />
                     </div>
+                    <Footer />
                 </Router>
             </div>
     )

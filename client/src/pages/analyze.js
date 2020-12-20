@@ -2,7 +2,9 @@ import {TechniqueManager} from "../xsound/TechniqueManager";
 import {useContext, useEffect} from "react";
 import {SoundXContext} from "../xsound/AudioProvider";
 import Button from "react-bootstrap/Button";
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 const Analyze = () => {
     const {audioListener} = useContext(SoundXContext);
 
@@ -41,20 +43,35 @@ const Analyze = () => {
         // }
 
     }
+    var phantom = {
+        display: 'block',
+        padding: '20px',
+        height: '60px',
+        width: '100%',
+      }    
+
 
     return <div>
-
-        <div style={{width:800,height:250}}/>
-        <TechniqueManager/>
-        <div style={{
-            display:"flex",
-            flexDirection:"row-reverse",
-            width:"70%",
-            marginTop:50
-        }}>
-            <Button variant="success" onClick={saveClips}>Save</Button>
-            <Button  variant="danger" onClick={clearClips} style={{marginRight:20}}>Clear</Button>
-        </div>
+        <Container fluid style={{backgroundColor: "darkgrey"}}>
+            <Row style={{marginBottom: -35}}>
+                <div style={{width:'100%',height:135, backgroundColor: "rgb(38, 50, 56)"}}/>
+            </Row>
+            
+            <TechniqueManager/>
+            
+            <Row>
+                <div style={{
+                    width:"100%",
+                    marginTop:-10,
+                    backgroundColor: "rgb(38, 50, 56)",
+                    boxShadow: "10px 20px 30px"
+                }}>
+                    <Button variant="success" onClick={saveClips} style={{margin: "25px"}}>Save</Button>
+                    <Button  variant="danger" onClick={clearClips} style={{margin: "25px"}}>Clear</Button>
+                </div>
+            </Row>
+        </Container>
+        <div style={phantom}></div>
     </div>;
 }
  

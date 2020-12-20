@@ -28,7 +28,7 @@ export class TimeAnalyze extends Component{
         return (
             <div>
                 {this.state.show &&
-                <div>
+                <div className="analyzerView">
                     <svg ref={this.canvasRef} width={w} height={h}> </svg>
                 </div>
                 }

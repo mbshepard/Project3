@@ -53,6 +53,11 @@ const ExistingUser = (props) => {
                 console.error('Error:', error)
             })
     }
+    const keyPressed=(e)=>{
+        if (e.keyCode===13){
+            login();
+        }
+    }
         return (
             <div className="backgroundPic">
                 <div id="title"></div> 
@@ -73,13 +78,13 @@ const ExistingUser = (props) => {
                                     <Col md={{ span: 4, offset: 4 }}>
                                         <Form.Group controlId="formPassword">
                                             <Form.Label>Password</Form.Label>
-                                            <Form.Control ref={password} type="password" placeholder="Password" />
+                                            <Form.Control ref={password} type="password" placeholder="Password" onKeyDown={keyPressed}/>
                                         </Form.Group>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col md={{ span: 4, offset: 4 }}>
-                                        <Button onClick={login}> Login </Button>
+                                        <Button  onClick={login}> Login </Button>
                                     </Col>
                                 </Row>
                                 <Row>
@@ -87,10 +92,9 @@ const ExistingUser = (props) => {
                                         <NavLink to="/NewUser" activeClassName="active"> Create new account. </NavLink>
                                     </Col>
                                 </Row>
-                            </Form>  
+                            </Form>
                         </div>
                     </div>
-                    <Link to="/home"> Home </Link>
                 </div>
             </div>
         );
